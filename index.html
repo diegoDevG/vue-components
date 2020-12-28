@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Bitcoin Calculator</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="app" v-bind:style="{background: '#' + color}" v-cloak>
+      <img :src="img" :alt="name" />
+      <h1 class="text-2xl" :class="changePercent > 0 ? '' : 'red'">
+        {{ title }}
+        <span v-if="changePercent > 0 "> 🤑 </span>
+        <span v-else> 🥺 </span>
+      </h1>
+      <button v-on:click="toggleShowPrices">
+        {{ showPrices ? 'Ocular 😎' : 'Ver 🧐'}}
+      </button>
+      <br />
+
+      <input type="number" v-model="value" />
+      <br />
+      <span>{{ convertedValue }}</span>
+
+      <ul v-show="showPrices">
+        <li
+          :class="{ 
+					orange: price.value === currentPrice, 
+					red: price.value < currentPrice,
+					green: price.value > currentPrice
+				}"
+          v-for="(price, index) in pricesWithDays"
+        >
+          {{ index + 1 }} - {{ price.day }} - {{ price.value }}
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="src/index.js"></script>
+  </body>
+</html>

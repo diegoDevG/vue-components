@@ -1,0 +1,33 @@
+[v-cloak] {
+  display: none;
+}
+
+#app {
+  height: 100vh;
+  padding: 30px;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 50px;
+}
+
+.red {
+  color: tomato;
+}
+
+.green {
+  color: seagreen;
+}
+
+.orange {
+  color: orange;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
